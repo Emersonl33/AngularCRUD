@@ -4,4 +4,9 @@
       <button routerLink="/criarPensamento" class="botao">Adicionar pensamento</button>
     </h2>
   </header>
+  <div class="mural">
+    <div *ngFor="let pensamento of ListarPensamentos">
+      <app-thought [pensamento]="pensamento"></app-thought>
+    </div>
+  </div>
 </section>
