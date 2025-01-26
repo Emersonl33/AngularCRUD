@@ -1,12 +1,12 @@
-<div class="pensamento {{pensamento.modelo}} ff-rboto-mono pensamento-p">
+<div class="pensamento {{pensamento.modelo}} ff-rboto-mono" [ngClass]="larguraPensamento()">
   <img src="/assets/imagens/{{pensamento.modelo}}.png" alt="colorful quotes">
   <p class="conteudo">{{pensamento.conteudo}}</p>
   <p class="autoria"><b>{{pensamento.autoria}}</b></p>
   <div class="acoes">
     <button class="botao-editar">
-      <img src="/assets/imagens/icone-editar.png" alt="icone editar">
+      <img src="/assets/imagens/icone-editar.png" routerLink="/thoughts/editarPensamento/{{pensamento.id}}">
     </button>
-    <button class="botao-excluir">
+    <button class="botao-excluir" routerLink="/thoughts/excluirPensamento/{{pensamento.id}}">
       <img src="/assets/imagens/icone-excluir.png" alt="icone excluir">
     </button>
   </div>
