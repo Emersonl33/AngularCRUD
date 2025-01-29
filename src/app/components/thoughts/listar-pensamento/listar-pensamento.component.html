@@ -14,6 +14,12 @@
     <h2 class="ff-inter"></h2>
       <button routerLink="/criarPensamento" class="botao">Adicionar pensamento</button>
 
+  <div class="botoes">
+    <button class="botao">Meu mural</button>
+    <button class="botao" (click)="listarFavoritos()">Meus Favoritos</button>
+    <button routerLink="/criarPensamento" class="botao">Novo pensamento</button>
+  </div>
+
   </header>
   <div class="mural" *ngIf="listaPensamentos.length > 0, else semPensamentos">
     <div *ngFor="let pensamento of listaPensamentos">

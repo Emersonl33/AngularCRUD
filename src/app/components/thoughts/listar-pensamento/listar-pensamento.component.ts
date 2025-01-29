@@ -12,7 +12,7 @@ export class ListarPensamentoComponent implements OnInit {
 
   listaPensamentos: Pensamento[] = [];
   paginaAtual: number = 1
-  haMaisPensamentos: boolean = true;
+  haMaisPensamentos: boolean = true
   filtro: string = ''
 
   constructor(private service: ThoughtService) { }
@@ -44,4 +44,14 @@ export class ListarPensamentoComponent implements OnInit {
     })
 
   }
+
+  listarFavoritos(){
+    this.haMaisPensamentos = true
+    this.paginaAtual = 1
+    this.service.listarPensamentosFavoritos(this.paginaAtual, this.filtro)
+    .subscribe(listaPensamentosFavoritos => {
+      this.listaPensamentos = listaPensamentosFavoritos
+    })
+  }
+
 }

@@ -1,3 +1,4 @@
+import { ThoughtService } from '../thought.service';
 import { Pensamento } from './../thought';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -12,12 +13,12 @@ export class ThoughtComponent {
   id: '',
   conteudo: 'I love angular',
   autoria: 'Emerson',
-  modelo: 'modelo3'
+  modelo: 'modelo3',
+  favorito: false
 }
 
-constructor() {
+constructor(private service: ThoughtService) {}
 
-}
 ngOnInit(): void {
 }
 larguraPensamento(): string{
@@ -25,5 +26,16 @@ larguraPensamento(): string{
     return 'pensamento-g'
   }
   return 'pensamento-p'
+}
+mudarIconeFavorito(): string {
+  if(this.pensamento.favorito == false){
+    return 'inativo'
+  }
+  return 'ativo'
+}
+
+
+atualizarFavoritos(){
+this.service.mudarFavorito(this.pensamento).subscribe();
 }
 }
